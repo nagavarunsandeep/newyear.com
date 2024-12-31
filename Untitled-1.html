@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy New Year 2025</title>
+    <style>
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        .message {
+            text-align: center;
+            color: #fff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        h1 {
+            font-size: 5em;
+            margin: 0;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+                    0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+                    0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>Happy New Year</h1>
+        <h1>2025!</h1>
+    </div>
+
+    <audio id="newYearAudio" autoplay>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Play celebratory audio
+        const audio = document.getElementById('newYearAudio');
+        audio.volume = 0.5; // Set volume to 50%
+        
+        // Add fireworks effect
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.style.position = 'absolute';
+            firework.style.left = Math.random() * window.innerWidth + 'px';
+            firework.style.top = Math.random() * window.innerHeight + 'px';
+            firework.style.width = '5px';
+            firework.style.height = '5px';
+            firework.style.borderRadius = '50%';
+            firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            firework.style.animation = 'explode 1s forwards';
+            document.body.appendChild(firework);
+            
+            setTimeout(() => {
+                document.body.removeChild(firework);
+            }, 1000);
+        }
+
+        setInterval(createFirework, 300);
+
+        document.addEventListener('click', () => {
+            audio.play(); // Play audio on click (some browsers require user interaction)
+        });
+    </script>
+</body>
+</html>
